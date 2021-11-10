@@ -11,6 +11,17 @@
 		571A30C3273AB3930088AA70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571A30C2273AB3930088AA70 /* ContentView.swift */; };
 		571A30C5273AB3940088AA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571A30C4273AB3940088AA70 /* Assets.xcassets */; };
 		571A30C8273AB3940088AA70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571A30C7273AB3940088AA70 /* Preview Assets.xcassets */; };
+		57ABB387273BECE500C0AA4B /* ShareTechMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ABB386273BECE500C0AA4B /* ShareTechMono-Regular.ttf */; settings = {ASSET_TAGS = (TechFont, ); }; };
+		57ABB392273BFD0E00C0AA4B /* Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57ABB390273BFD0E00C0AA4B /* Client.cpp */; };
+		57ABB394273C052100C0AA4B /* client_log.txt in Resources */ = {isa = PBXBuildFile; fileRef = 57ABB393273C052100C0AA4B /* client_log.txt */; };
+		57B47AB6273ACC5B0015D7AA /* Bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB5273ACC5B0015D7AA /* Bot.swift */; };
+		57B47AB8273ACC670015D7AA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB7273ACC670015D7AA /* User.swift */; };
+		57B47ABA273ACC740015D7AA /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB9273ACC740015D7AA /* Admin.swift */; };
+		57B47ABC273AD1200015D7AA /* Common_user.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47ABB273AD1200015D7AA /* Common_user.swift.swift */; };
+		57B47ABE273AD1630015D7AA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47ABD273AD1630015D7AA /* Request.swift */; };
+		57B47AC0273AD1800015D7AA /* Admin_Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47ABF273AD1800015D7AA /* Admin_Request.swift */; };
+		57B47AC3273AD2170015D7AA /* World_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AC2273AD2170015D7AA /* World_Item.swift */; };
+		57B47AC5273AD5220015D7AA /* Request_Type.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AC4273AD5220015D7AA /* Request_Type.swift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +30,19 @@
 		571A30C2273AB3930088AA70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		571A30C4273AB3940088AA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		571A30C7273AB3940088AA70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		57ABB386273BECE500C0AA4B /* ShareTechMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ShareTechMono-Regular.ttf"; sourceTree = "<group>"; };
+		57ABB38F273BFD0D00C0AA4B /* iDeliver_bot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iDeliver_bot-Bridging-Header.h"; sourceTree = "<group>"; };
+		57ABB390273BFD0E00C0AA4B /* Client.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Client.cpp; sourceTree = "<group>"; };
+		57ABB391273BFD0E00C0AA4B /* Client.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Client.hpp; sourceTree = "<group>"; };
+		57ABB393273C052100C0AA4B /* client_log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = client_log.txt; sourceTree = "<group>"; };
+		57B47AB5273ACC5B0015D7AA /* Bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bot.swift; sourceTree = "<group>"; };
+		57B47AB7273ACC670015D7AA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		57B47AB9273ACC740015D7AA /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		57B47ABB273AD1200015D7AA /* Common_user.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common_user.swift.swift; sourceTree = "<group>"; };
+		57B47ABD273AD1630015D7AA /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		57B47ABF273AD1800015D7AA /* Admin_Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin_Request.swift; sourceTree = "<group>"; };
+		57B47AC2273AD2170015D7AA /* World_Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World_Item.swift; sourceTree = "<group>"; };
+		57B47AC4273AD5220015D7AA /* Request_Type.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request_Type.swift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +75,8 @@
 		571A30BF273AB3930088AA70 /* iDeliver_bot */ = {
 			isa = PBXGroup;
 			children = (
+				57ABB37F273BEC4500C0AA4B /* Fonts */,
+				57B47AB4273ACC450015D7AA /* Classes */,
 				571A30C0273AB3930088AA70 /* iDeliver_botApp.swift */,
 				571A30C2273AB3930088AA70 /* ContentView.swift */,
 				571A30C4273AB3940088AA70 /* Assets.xcassets */,
@@ -65,6 +91,49 @@
 				571A30C7273AB3940088AA70 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		57ABB37F273BEC4500C0AA4B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				57ABB386273BECE500C0AA4B /* ShareTechMono-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		57ABB38E273BFB0300C0AA4B /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				57ABB390273BFD0E00C0AA4B /* Client.cpp */,
+				57ABB391273BFD0E00C0AA4B /* Client.hpp */,
+				57ABB38F273BFD0D00C0AA4B /* iDeliver_bot-Bridging-Header.h */,
+				57ABB393273C052100C0AA4B /* client_log.txt */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		57B47AB4273ACC450015D7AA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				57ABB38E273BFB0300C0AA4B /* Client */,
+				57B47AB5273ACC5B0015D7AA /* Bot.swift */,
+				57B47AB7273ACC670015D7AA /* User.swift */,
+				57B47AB9273ACC740015D7AA /* Admin.swift */,
+				57B47ABB273AD1200015D7AA /* Common_user.swift.swift */,
+				57B47AC2273AD2170015D7AA /* World_Item.swift */,
+				57B47AC1273AD1A20015D7AA /* Requests */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		57B47AC1273AD1A20015D7AA /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				57B47ABD273AD1630015D7AA /* Request.swift */,
+				57B47ABF273AD1800015D7AA /* Admin_Request.swift */,
+				57B47AC4273AD5220015D7AA /* Request_Type.swift.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,11 +163,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					TechFont,
+				);
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					571A30BC273AB3930088AA70 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
 					};
 				};
 			};
@@ -127,6 +200,8 @@
 			files = (
 				571A30C8273AB3940088AA70 /* Preview Assets.xcassets in Resources */,
 				571A30C5273AB3940088AA70 /* Assets.xcassets in Resources */,
+				57ABB387273BECE500C0AA4B /* ShareTechMono-Regular.ttf in Resources */,
+				57ABB394273C052100C0AA4B /* client_log.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +212,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57B47AB8273ACC670015D7AA /* User.swift in Sources */,
+				57B47AC3273AD2170015D7AA /* World_Item.swift in Sources */,
+				57B47AB6273ACC5B0015D7AA /* Bot.swift in Sources */,
 				571A30C3273AB3930088AA70 /* ContentView.swift in Sources */,
+				57B47AC5273AD5220015D7AA /* Request_Type.swift.swift in Sources */,
+				57B47ABA273ACC740015D7AA /* Admin.swift in Sources */,
+				57B47ABE273AD1630015D7AA /* Request.swift in Sources */,
+				57B47ABC273AD1200015D7AA /* Common_user.swift.swift in Sources */,
+				57ABB392273BFD0E00C0AA4B /* Client.cpp in Sources */,
 				571A30C1273AB3930088AA70 /* iDeliver_botApp.swift in Sources */,
+				57B47AC0273AD1800015D7AA /* Admin_Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,15 +350,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iDeliver_bot/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "iDeliver_bot/Preview\\ Content iDeliver_bot/Fonts/ShareTechMono-Regular.ttf";
 				DEVELOPMENT_TEAM = 5265695R8F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -285,6 +371,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Liam-Bryant.iDeliver-bot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "iDeliver_bot/Classes/Client/iDeliver_bot-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -295,15 +383,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iDeliver_bot/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "iDeliver_bot/Preview\\ Content iDeliver_bot/Fonts/ShareTechMono-Regular.ttf";
 				DEVELOPMENT_TEAM = 5265695R8F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -314,6 +404,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Liam-Bryant.iDeliver-bot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "iDeliver_bot/Classes/Client/iDeliver_bot-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
