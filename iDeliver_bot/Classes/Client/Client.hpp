@@ -10,10 +10,12 @@
 
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
 #include <iostream>
 #include <unistd.h>
 #include <vector>
 #include <fstream>
+
 #define PORT 8080
 #define ADDR "127.0.0.1"
 #define BUF_SIZE 1024
@@ -34,7 +36,7 @@ public:
     Client(debug_modes debug_mode_);
     ~Client();
     bool connect_cl();
-    void read();
+    void read_cl();
     
     
 private:
