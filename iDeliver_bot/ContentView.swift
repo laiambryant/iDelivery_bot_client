@@ -13,8 +13,6 @@ struct ContentView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     
-    
-    
     var body: some View {
         VStack{
             Text("iDelivery BOT").fontWeight(.bold).font(.title)
@@ -32,13 +30,17 @@ struct ContentView: View {
                     }.disableAutocorrection(true).textFieldStyle(.automatic).padding(.all)
                 }
                 HStack{
-                    Button(action: {}, label:{
+                    Button(action: {
+    
+                    }, label:{
                         HStack{
                             Image(systemName: "dot.circle.and.hand.point.up.left.fill")
                             Text("Login")
                         }}).buttonStyle(.borderedProminent)
                     Spacer()
-                    Button(action:{}, label:{
+                    Button(action:{
+                        
+                    }, label:{
                         HStack{
                             Image(systemName: "person.fill.questionmark")
                             Text("Forgot PW?")

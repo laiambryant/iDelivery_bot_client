@@ -9,10 +9,16 @@ import Foundation
 
 class Request{
     
-    private let req_type_:Request_Type
+    private let _req_type:Request_Type
+    private var _priority:Int32
     
-    init(_req_type:Request_Type){
-        self.req_type_ = _req_type
+    init(req_type_:Request_Type){
+        _req_type = req_type_
+        _priority = 0
+    }
+    
+    func setPriority(priority_:Int32){
+        self._priority = priority_
     }
     
 }

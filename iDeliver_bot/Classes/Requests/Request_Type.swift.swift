@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 enum Request_Type{
+    case login
     case call
     case priority_call
     case arrived
@@ -17,3 +18,4 @@ enum Request_Type{
     case cancel
     case timeout
 }
+

@@ -21,5 +21,5 @@ class Robot:World_Item{
     func deactivate(){
         self.active = false
     }
-
+    
 }

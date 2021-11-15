@@ -8,8 +8,8 @@
 import Foundation
 
 class Common_user:User{
+    private let priority:Int = 0
     override init(_x: Float, _y: Float, _z: Float) {
         super.init(_x:_x,_y:_y,_z:_z)
-        self.priority = 0
     }
 }

@@ -11,9 +11,10 @@
 		571A30C3273AB3930088AA70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571A30C2273AB3930088AA70 /* ContentView.swift */; };
 		571A30C5273AB3940088AA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571A30C4273AB3940088AA70 /* Assets.xcassets */; };
 		571A30C8273AB3940088AA70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571A30C7273AB3940088AA70 /* Preview Assets.xcassets */; };
+		574FF57D273E82C200ADDBF9 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FF57C273E82C200ADDBF9 /* Client.swift */; };
+		574FF57F273EBA3B00ADDBF9 /* Client_Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FF57E273EBA3B00ADDBF9 /* Client_Status.swift */; };
+		574FF5832742C24800ADDBF9 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 574FF5822742C24800ADDBF9 /* SocketIO */; };
 		57ABB387273BECE500C0AA4B /* ShareTechMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ABB386273BECE500C0AA4B /* ShareTechMono-Regular.ttf */; settings = {ASSET_TAGS = (TechFont, ); }; };
-		57ABB392273BFD0E00C0AA4B /* Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57ABB390273BFD0E00C0AA4B /* Client.cpp */; };
-		57ABB394273C052100C0AA4B /* client_log.txt in Resources */ = {isa = PBXBuildFile; fileRef = 57ABB393273C052100C0AA4B /* client_log.txt */; };
 		57B47AB6273ACC5B0015D7AA /* Bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB5273ACC5B0015D7AA /* Bot.swift */; };
 		57B47AB8273ACC670015D7AA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB7273ACC670015D7AA /* User.swift */; };
 		57B47ABA273ACC740015D7AA /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB9273ACC740015D7AA /* Admin.swift */; };
@@ -30,11 +31,9 @@
 		571A30C2273AB3930088AA70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		571A30C4273AB3940088AA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		571A30C7273AB3940088AA70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		574FF57C273E82C200ADDBF9 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		574FF57E273EBA3B00ADDBF9 /* Client_Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client_Status.swift; sourceTree = "<group>"; };
 		57ABB386273BECE500C0AA4B /* ShareTechMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ShareTechMono-Regular.ttf"; sourceTree = "<group>"; };
-		57ABB38F273BFD0D00C0AA4B /* iDeliver_bot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iDeliver_bot-Bridging-Header.h"; sourceTree = "<group>"; };
-		57ABB390273BFD0E00C0AA4B /* Client.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Client.cpp; sourceTree = "<group>"; };
-		57ABB391273BFD0E00C0AA4B /* Client.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Client.hpp; sourceTree = "<group>"; };
-		57ABB393273C052100C0AA4B /* client_log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = client_log.txt; sourceTree = "<group>"; };
 		57B47AB5273ACC5B0015D7AA /* Bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bot.swift; sourceTree = "<group>"; };
 		57B47AB7273ACC670015D7AA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		57B47AB9273ACC740015D7AA /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				574FF5832742C24800ADDBF9 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +93,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		574FF580273EBB4100ADDBF9 /* Logs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logs;
+			sourceTree = "<group>";
+		};
 		57ABB37F273BEC4500C0AA4B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,10 +111,9 @@
 		57ABB38E273BFB0300C0AA4B /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				57ABB390273BFD0E00C0AA4B /* Client.cpp */,
-				57ABB391273BFD0E00C0AA4B /* Client.hpp */,
-				57ABB38F273BFD0D00C0AA4B /* iDeliver_bot-Bridging-Header.h */,
-				57ABB393273C052100C0AA4B /* client_log.txt */,
+				574FF580273EBB4100ADDBF9 /* Logs */,
+				574FF57C273E82C200ADDBF9 /* Client.swift */,
+				574FF57E273EBA3B00ADDBF9 /* Client_Status.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -152,6 +158,9 @@
 			dependencies = (
 			);
 			name = iDeliver_bot;
+			packageProductDependencies = (
+				574FF5822742C24800ADDBF9 /* SocketIO */,
+			);
 			productName = iDeliver_bot;
 			productReference = 571A30BD273AB3930088AA70 /* iDeliver_bot.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +193,9 @@
 				Base,
 			);
 			mainGroup = 571A30B4273AB3930088AA70;
+			packageReferences = (
+				574FF5812742C24800ADDBF9 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+			);
 			productRefGroup = 571A30BE273AB3930088AA70 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -201,7 +213,6 @@
 				571A30C8273AB3940088AA70 /* Preview Assets.xcassets in Resources */,
 				571A30C5273AB3940088AA70 /* Assets.xcassets in Resources */,
 				57ABB387273BECE500C0AA4B /* ShareTechMono-Regular.ttf in Resources */,
-				57ABB394273C052100C0AA4B /* client_log.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57B47AB8273ACC670015D7AA /* User.swift in Sources */,
+				574FF57F273EBA3B00ADDBF9 /* Client_Status.swift in Sources */,
 				57B47AC3273AD2170015D7AA /* World_Item.swift in Sources */,
 				57B47AB6273ACC5B0015D7AA /* Bot.swift in Sources */,
 				571A30C3273AB3930088AA70 /* ContentView.swift in Sources */,
@@ -220,8 +232,8 @@
 				57B47ABA273ACC740015D7AA /* Admin.swift in Sources */,
 				57B47ABE273AD1630015D7AA /* Request.swift in Sources */,
 				57B47ABC273AD1200015D7AA /* Common_user.swift.swift in Sources */,
-				57ABB392273BFD0E00C0AA4B /* Client.cpp in Sources */,
 				571A30C1273AB3930088AA70 /* iDeliver_botApp.swift in Sources */,
+				574FF57D273E82C200ADDBF9 /* Client.swift in Sources */,
 				57B47AC0273AD1800015D7AA /* Admin_Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +383,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Liam-Bryant.iDeliver-bot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "iDeliver_bot/Classes/Client/iDeliver_bot-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -404,7 +415,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Liam-Bryant.iDeliver-bot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "iDeliver_bot/Classes/Client/iDeliver_bot-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -432,6 +443,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		574FF5812742C24800ADDBF9 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		574FF5822742C24800ADDBF9 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 574FF5812742C24800ADDBF9 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 571A30B5273AB3930088AA70 /* Project object */;
 }
