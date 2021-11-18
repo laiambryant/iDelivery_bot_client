@@ -13,5 +13,6 @@ struct iDeliver_botApp: App {
         WindowGroup {
             ContentView()
         }
+        
     }
 }
