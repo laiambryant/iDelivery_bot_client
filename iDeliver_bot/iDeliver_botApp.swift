@@ -8,11 +8,15 @@
 import SwiftUI
 
 @main
-struct iDeliver_botApp: App {
+struct iDeliver_botApp:App{
+    
+    let viewModel_:iDelivery_bot = iDelivery_bot()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel:viewModel_)
         }
-        
     }
+
 }
+

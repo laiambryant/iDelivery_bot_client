@@ -11,11 +11,12 @@
 		571A30C3273AB3930088AA70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571A30C2273AB3930088AA70 /* ContentView.swift */; };
 		571A30C5273AB3940088AA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571A30C4273AB3940088AA70 /* Assets.xcassets */; };
 		571A30C8273AB3940088AA70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571A30C7273AB3940088AA70 /* Preview Assets.xcassets */; };
+		57281D86274CFC78005607A0 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57281D85274CFC78005607A0 /* ExternalAccessory.framework */; };
 		572A7AEA27451DC200867884 /* Client_SIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FF57C273E82C200ADDBF9 /* Client_SIO.swift */; };
 		574FF57F273EBA3B00ADDBF9 /* Client_Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FF57E273EBA3B00ADDBF9 /* Client_Status.swift */; };
 		574FF5832742C24800ADDBF9 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 574FF5822742C24800ADDBF9 /* SocketIO */; };
 		57ABB387273BECE500C0AA4B /* ShareTechMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ABB386273BECE500C0AA4B /* ShareTechMono-Regular.ttf */; settings = {ASSET_TAGS = (TechFont, ); }; };
-		57B47AB6273ACC5B0015D7AA /* Bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB5273ACC5B0015D7AA /* Bot.swift */; };
+		57B47AB6273ACC5B0015D7AA /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB5273ACC5B0015D7AA /* Robot.swift */; };
 		57B47AB8273ACC670015D7AA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB7273ACC670015D7AA /* User.swift */; };
 		57B47ABA273ACC740015D7AA /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB9273ACC740015D7AA /* Admin.swift */; };
 		57B47ABC273AD1200015D7AA /* Common_user.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47ABB273AD1200015D7AA /* Common_user.swift.swift */; };
@@ -23,6 +24,8 @@
 		57B47AC0273AD1800015D7AA /* Admin_Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47ABF273AD1800015D7AA /* Admin_Request.swift */; };
 		57B47AC3273AD2170015D7AA /* World_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AC2273AD2170015D7AA /* World_Item.swift */; };
 		57B47AC5273AD5220015D7AA /* Request_Type.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AC4273AD5220015D7AA /* Request_Type.swift.swift */; };
+		57B7E090274CEB8900959095 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B7E08F274CEB8900959095 /* Map.swift */; };
+		57B7E093274CECB000959095 /* iDelivery_bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B7E092274CECB000959095 /* iDelivery_bot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,10 +34,12 @@
 		571A30C2273AB3930088AA70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		571A30C4273AB3940088AA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		571A30C7273AB3940088AA70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		57281D85274CFC78005607A0 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		574FF57C273E82C200ADDBF9 /* Client_SIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client_SIO.swift; sourceTree = "<group>"; };
 		574FF57E273EBA3B00ADDBF9 /* Client_Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client_Status.swift; sourceTree = "<group>"; };
+		5752C60A27465B72007024BE /* iDeliver-bot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "iDeliver-bot-Info.plist"; sourceTree = SOURCE_ROOT; };
 		57ABB386273BECE500C0AA4B /* ShareTechMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ShareTechMono-Regular.ttf"; sourceTree = "<group>"; };
-		57B47AB5273ACC5B0015D7AA /* Bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bot.swift; sourceTree = "<group>"; };
+		57B47AB5273ACC5B0015D7AA /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
 		57B47AB7273ACC670015D7AA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		57B47AB9273ACC740015D7AA /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		57B47ABB273AD1200015D7AA /* Common_user.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common_user.swift.swift; sourceTree = "<group>"; };
@@ -42,6 +47,8 @@
 		57B47ABF273AD1800015D7AA /* Admin_Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin_Request.swift; sourceTree = "<group>"; };
 		57B47AC2273AD2170015D7AA /* World_Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World_Item.swift; sourceTree = "<group>"; };
 		57B47AC4273AD5220015D7AA /* Request_Type.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request_Type.swift.swift; sourceTree = "<group>"; };
+		57B7E08F274CEB8900959095 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		57B7E092274CECB000959095 /* iDelivery_bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDelivery_bot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57281D86274CFC78005607A0 /* ExternalAccessory.framework in Frameworks */,
 				574FF5832742C24800ADDBF9 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +69,7 @@
 			children = (
 				571A30BF273AB3930088AA70 /* iDeliver_bot */,
 				571A30BE273AB3930088AA70 /* Products */,
+				57281D84274CFC78005607A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,7 +87,9 @@
 				57ABB37F273BEC4500C0AA4B /* Fonts */,
 				57B47AB4273ACC450015D7AA /* Classes */,
 				571A30C0273AB3930088AA70 /* iDeliver_botApp.swift */,
+				57B7E092274CECB000959095 /* iDelivery_bot.swift */,
 				571A30C2273AB3930088AA70 /* ContentView.swift */,
+				5752C60A27465B72007024BE /* iDeliver-bot-Info.plist */,
 				571A30C4273AB3940088AA70 /* Assets.xcassets */,
 				571A30C6273AB3940088AA70 /* Preview Content */,
 			);
@@ -91,6 +102,14 @@
 				571A30C7273AB3940088AA70 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		57281D84274CFC78005607A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57281D85274CFC78005607A0 /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		574FF580273EBB4100ADDBF9 /* Logs */ = {
@@ -121,12 +140,9 @@
 		57B47AB4273ACC450015D7AA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				57B7E08F274CEB8900959095 /* Map.swift */,
+				57B7E091274CEBD100959095 /* World_Items */,
 				57ABB38E273BFB0300C0AA4B /* Client */,
-				57B47AB5273ACC5B0015D7AA /* Bot.swift */,
-				57B47AB7273ACC670015D7AA /* User.swift */,
-				57B47AB9273ACC740015D7AA /* Admin.swift */,
-				57B47ABB273AD1200015D7AA /* Common_user.swift.swift */,
-				57B47AC2273AD2170015D7AA /* World_Item.swift */,
 				57B47AC1273AD1A20015D7AA /* Requests */,
 			);
 			path = Classes;
@@ -140,6 +156,18 @@
 				57B47AC4273AD5220015D7AA /* Request_Type.swift.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		57B7E091274CEBD100959095 /* World_Items */ = {
+			isa = PBXGroup;
+			children = (
+				57B47AB5273ACC5B0015D7AA /* Robot.swift */,
+				57B47AB7273ACC670015D7AA /* User.swift */,
+				57B47AB9273ACC740015D7AA /* Admin.swift */,
+				57B47ABB273AD1200015D7AA /* Common_user.swift.swift */,
+				57B47AC2273AD2170015D7AA /* World_Item.swift */,
+			);
+			path = World_Items;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,9 +253,11 @@
 			files = (
 				572A7AEA27451DC200867884 /* Client_SIO.swift in Sources */,
 				57B47AB8273ACC670015D7AA /* User.swift in Sources */,
+				57B7E090274CEB8900959095 /* Map.swift in Sources */,
+				57B7E093274CECB000959095 /* iDelivery_bot.swift in Sources */,
 				574FF57F273EBA3B00ADDBF9 /* Client_Status.swift in Sources */,
 				57B47AC3273AD2170015D7AA /* World_Item.swift in Sources */,
-				57B47AB6273ACC5B0015D7AA /* Bot.swift in Sources */,
+				57B47AB6273ACC5B0015D7AA /* Robot.swift in Sources */,
 				571A30C3273AB3930088AA70 /* ContentView.swift in Sources */,
 				57B47AC5273AD5220015D7AA /* Request_Type.swift.swift in Sources */,
 				57B47ABA273ACC740015D7AA /* Admin.swift in Sources */,
@@ -363,12 +393,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = iDeliver_bot/iDeliver_bot.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "iDeliver_bot/Preview\\ Content iDeliver_bot/Fonts/ShareTechMono-Regular.ttf";
 				DEVELOPMENT_TEAM = 5265695R8F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iDeliver-bot-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -382,6 +415,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Liam-Bryant.iDeliver-bot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -395,12 +429,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = iDeliver_bot/iDeliver_bot.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "iDeliver_bot/Preview\\ Content iDeliver_bot/Fonts/ShareTechMono-Regular.ttf";
 				DEVELOPMENT_TEAM = 5265695R8F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iDeliver-bot-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -414,6 +451,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Liam-Bryant.iDeliver-bot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

@@ -21,8 +21,9 @@ class Client_SIO{
         "login", "call", "priority_call", "arrived",
         "obj_sent", "obj_recieved", "cancel", "timeout"
     ]
+    private let _localhost_str = "http://localhost:"
     init() {
-        let addr:String = "http://192.168.1.30:" + String(_port)
+        let addr:String = _localhost_str + String(_port)
         _manager = SocketManager(socketURL: URL(string: addr)!, config: [.log(true), .compress])
         _sock = _manager.defaultSocket
         _cli_status = Client_Status.waiting
@@ -32,6 +33,7 @@ class Client_SIO{
         _sock.connect()
         _sock.on(clientEvent: .connect){
             (data, ack) in
+            print(data)
             self._cli_status = Client_Status.waiting
         }
         _sock.on(clientEvent: .error){
@@ -52,9 +54,7 @@ class Client_SIO{
     }
     func write_cl(data_:String, req_type_:Request_Type)->Void{
         self._cli_status = Client_Status.reading
-        
         print("Called write func")
-        
         switch req_type_ {
         case .login:
             _sock.emit("LOGIN", data_)
@@ -82,7 +82,6 @@ class Client_SIO{
 func connect_cl(){
     let cli:Client_SIO = Client_SIO()
     cli.connect_cl()
-    cli.write_cl(data_: "LOGIN", req_type_:Request_Type.login)
 }
 
 
