@@ -15,15 +15,16 @@ class Client_SIO{
     private var _sock:SocketIOClient
     private var _cli_status:Client_Status
     private var _buffer:[Character] = []
-    private let _port:UInt16 = 9000
+    private let _port:UInt16 = 8080
     private let _manager:SocketManager
     private let _requests_str:[String] = [
         "login", "call", "priority_call", "arrived",
         "obj_sent", "obj_recieved", "cancel", "timeout"
     ]
     private let _localhost_str = "http://localhost:"
+    private let _ip_addr = "http://192.168.1.64:"
     init() {
-        let addr:String = _localhost_str + String(_port)
+        let addr:String = _ip_addr + String(_port)
         _manager = SocketManager(socketURL: URL(string: addr)!, config: [.log(true), .compress])
         _sock = _manager.defaultSocket
         _cli_status = Client_Status.waiting
@@ -41,16 +42,17 @@ class Client_SIO{
             print(data)
         }
     }
-    func read_cl()->Void{
+    func read_cl()->String{
         self._cli_status = Client_Status.reading
         
         //Write requests possible reads here
-        _sock.on(""){
+        _sock.on("LOGIN_SUCCESS"){
             (data, ack) in
-        
+            print(data)
         }
         
         self._cli_status = Client_Status.waiting
+        return "MSG_SENT"
     }
     func write_cl(data_:String, req_type_:Request_Type)->Void{
         self._cli_status = Client_Status.reading

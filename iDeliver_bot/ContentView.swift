@@ -10,14 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel:iDelivery_bot
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    
     var body: some View {
         VStack{
             Header()
             Spacer()
-            Login_form(viewModel: viewModel)
+            Login_form(viewModel_: viewModel)
         }
     }
+
 }
 
 struct Header:View{
@@ -28,72 +30,70 @@ struct Header:View{
 }
 
 struct Login_form:View{
-    var viewModel:iDelivery_bot
+    @ObservedObject var viewModel_:iDelivery_bot_VM
     var body:some View{
         Form{
             HStack{
-                Username_textfield(username_:viewModel._user_data._username)
-                Password_textfield(password_:viewModel._user_data._password)
+                Username_textfield(viewModel: viewModel_)
+                Password_textfield(viewModel: viewModel_)
             }
             HStack{
-                Connect_button(isConnected: viewModel.isConnected)
+                Connect_button(viewModel: viewModel_)
                 Spacer()
-                Login_button(isConnected: viewModel.isConnected)
+                Login_button(viewModel: viewModel_)
             }
         }
     }
+}
 
-    struct Username_textfield:View{
-        @State var username_:String
-        
-        var body: some View{
-            TextField(text: $username_, prompt: Text("Username")) {
+
+struct Username_textfield:View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body: some View{
+        TextField(text: $viewModel.app._user_data._username, prompt: Text("Username")) {
                 Text("Username")
-            }.disableAutocorrection(true).textFieldStyle(.automatic).padding(.all)
+        }.disableAutocorrection(true).textFieldStyle(.automatic).padding(.all)
         }
-    }
+}
     
-    struct Password_textfield:View{
-        @State var password_:String
-        var body: some View{
-            SecureField(text: $password_, prompt: Text("Password")) {
-                Text("Password")
-                }.disableAutocorrection(true).textFieldStyle(.automatic).padding(.all)
-        }
+struct Password_textfield:View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body: some View{
+        SecureField(text: $viewModel.app._user_data._password, prompt: Text("Password")) {
+            Text("Password")
+        }.disableAutocorrection(true).textFieldStyle(.automatic).padding(.all)
     }
+}
     
-    struct Connect_button:View{
-        @State var isConnected:Bool
-        var body:some View{
-            Button(action:{
-                
-            },label:{
-                HStack{
-                    Image(systemName:"antenna.radiowaves.left.and.right.circle")
-                    Text("Connect")
-                }}).buttonStyle(.borderedProminent).disabled(isConnected)
-            
-        }
+struct Connect_button:View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body:some View{
+        Button(action:{
+            viewModel.ni_connect()
+        },label:{
+            HStack{
+                Image(systemName:"antenna.radiowaves.left.and.right.circle")
+                Text("Connect")
+            }}).buttonStyle(.borderedProminent).disabled(viewModel.ni_isConnected())
     }
-    
-    struct Login_button:View{
-        @State var isConnected:Bool
-        var body:some View{
-            Button(action: {
-                
-            }, label:{
-                HStack{
-                  Image(systemName: "dot.circle.and.hand.point.up.left.fill")
-                  Text("Login    ")
-            }}).buttonStyle(.borderedProminent).disabled(!isConnected)
-        }
+}
+
+struct Login_button:View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body:some View{
+        Button(action: {
+            print(viewModel.verify_credentials())
+        }, label:{
+            HStack{
+              Image(systemName: "dot.circle.and.hand.point.up.left.fill")
+              Text("Login    ")
+            }}).buttonStyle(.borderedProminent).disabled(!viewModel.ni_isConnected())
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: iDelivery_bot())
+        ContentView(viewModel: iDelivery_bot_VM())
     }
 }
 
