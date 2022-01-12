@@ -10,13 +10,20 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel:iDelivery_bot_VM
+    @ObservedObject var viewModel_:iDelivery_bot_VM
     
     var body: some View {
-        VStack{
-            Header()
-            Spacer()
-            Login_form(viewModel_: viewModel)
+        if((viewModel_.app._user_data.auth==false)){
+            VStack{
+                Header()
+                Login_form(viewModel_: viewModel_)
+            }
+        } else {
+                VStack{
+                    Map_header(viewModel: viewModel_)
+                    Map_buttons(viewModel: viewModel_)
+                    Map_body(viewModel: viewModel_)
+                }
         }
     }
 
@@ -24,7 +31,7 @@ struct ContentView: View {
 
 struct Header:View{
     var body:some View{
-        Text("iDelivery BOT").fontWeight(.bold).font(.title)
+        Text("iDelivery BOT").fontWeight(.bold).font(.title).padding(.all)
         Image("Robot").resizable().aspectRatio(contentMode: .fit).padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
@@ -34,37 +41,32 @@ struct Login_form:View{
     var body:some View{
         Form{
             HStack{
-                Username_textfield(viewModel: viewModel_)
-                Password_textfield(viewModel: viewModel_)
+                TextField(text: $viewModel_.app._user_data._username, prompt: Text("Username")) {
+                        Text("Username")
+                }.disableAutocorrection(true).textFieldStyle(.automatic).padding(.all)
+                
+                SecureField(text: $viewModel_.app._user_data._password, prompt: Text("Password")){
+                    Text("Password")
+                }.disableAutocorrection(true).textFieldStyle(.automatic).padding(.all)
             }
-            HStack{
-                Connect_button(viewModel: viewModel_)
-                Spacer()
-                Login_button(viewModel: viewModel_)
-            }
+            Buttons(viewModel: viewModel_)
         }
     }
 }
 
 
-struct Username_textfield:View{
+struct Buttons:View{
     @ObservedObject var viewModel:iDelivery_bot_VM
-    var body: some View{
-        TextField(text: $viewModel.app._user_data._username, prompt: Text("Username")) {
-                Text("Username")
-        }.disableAutocorrection(true).textFieldStyle(.automatic).padding(.all)
+    var body:some View{
+        HStack{
+            Connect_button(viewModel: viewModel)
+            Spacer()
+            Login_button(viewModel: viewModel)
         }
-}
-    
-struct Password_textfield:View{
-    @ObservedObject var viewModel:iDelivery_bot_VM
-    var body: some View{
-        SecureField(text: $viewModel.app._user_data._password, prompt: Text("Password")) {
-            Text("Password")
-        }.disableAutocorrection(true).textFieldStyle(.automatic).padding(.all)
     }
 }
-    
+
+
 struct Connect_button:View{
     @ObservedObject var viewModel:iDelivery_bot_VM
     var body:some View{
@@ -91,9 +93,82 @@ struct Login_button:View{
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(viewModel: iDelivery_bot_VM())
+
+struct Map_header : View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body:some View{
+        VStack{
+            Text("Hello \(viewModel.app._user_data._username)!").fontWeight(.bold).font(.title)
+            Text("You can call the robot pressing the call button. Confirm arrival pressing the arrived button when it arrives. At anytime while waiting for the bot you can cancel your request.").padding(.all)
+            
+        }
     }
 }
 
+struct Map_buttons : View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body:some View{
+        VStack{
+            HStack{
+                call_button(viewModel: viewModel)
+                arrived_button(viewModel: viewModel)
+            }
+            HStack{
+                cancel_button(viewModel: viewModel)
+            }
+        }
+    }
+}
+
+struct Map_body : View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body:some View{
+        VStack{
+            Image("Map").resizable().aspectRatio(contentMode: .fit).padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        }
+    }
+}
+
+struct call_button:View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body:some View{
+        Button(action: {
+            
+        }, label:{
+            HStack{
+              Image(systemName: "phone")
+              Text("Call    ")
+            }}).buttonStyle(.borderedProminent).disabled(viewModel.ni_isBeingServed())
+    }
+}
+struct cancel_button:View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body:some View{
+        Button(action: {
+            
+        }, label:{
+            HStack{
+              Image(systemName: "x.circle")
+              Text("Cancel    ")
+            }}).buttonStyle(.borderedProminent).disabled(!viewModel.ni_isBeingServed())
+    }
+}
+
+struct arrived_button:View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body:some View{
+        Button(action: {
+            
+        }, label:{
+            HStack{
+              Image(systemName: "airplane.arrival")
+              Text("Arrived    ")
+            }}).buttonStyle(.borderedProminent).disabled(!viewModel.ni_isBeingServed())
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(viewModel_:iDelivery_bot_VM())
+    }
+}

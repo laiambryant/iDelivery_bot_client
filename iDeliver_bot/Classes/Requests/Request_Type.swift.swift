@@ -17,5 +17,6 @@ enum Request_Type{
     case obj_recieved
     case cancel
     case timeout
+    case invalid
 }
 

@@ -23,14 +23,26 @@ class iDelivery_bot_VM : ObservableObject{
         app.isConnected_Toggle()
     }
     
+    func ni_call(){
+        
+        app.isBeingServed_Toggle()
+    }
+    
     func ni_isConnected()->Bool{
         return app.isConnected()
     }
     
-    func verify_credentials()->User{
+    
+    
+    func ni_isBeingServed()->Bool{
+        return app.isBeingServed()
+    }
+    
+    func verify_credentials()->Bool{
         let username_:String =  app._user_data._username
         let password_:String = app._user_data._password
-        return app.NI_login(username_: username_, password_: password_)
+        app.NI_login(username_: username_, password_: password_)
+        return app._user_data.auth
     }
     
 }

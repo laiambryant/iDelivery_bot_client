@@ -15,14 +15,16 @@ class Client_SIO{
     private var _sock:SocketIOClient
     private var _cli_status:Client_Status
     private var _buffer:[Character] = []
-    private let _port:UInt16 = 8080
+    private let _port:UInt16 = 5050
     private let _manager:SocketManager
     private let _requests_str:[String] = [
         "login", "call", "priority_call", "arrived",
         "obj_sent", "obj_recieved", "cancel", "timeout"
     ]
+    //localhost string used if server is on the same machine, ip addr if server is on another machine
     private let _localhost_str = "http://localhost:"
     private let _ip_addr = "http://192.168.1.64:"
+    private let _docker_container_ip_addr = "http://172.17.0.1"
     init() {
         let addr:String = _ip_addr + String(_port)
         _manager = SocketManager(socketURL: URL(string: addr)!, config: [.log(true), .compress])
@@ -41,6 +43,10 @@ class Client_SIO{
             (data, ack) in
             print(data)
         }
+        _sock.on(clientEvent: .disconnect){
+            (data, ack) in
+            self._cli_status = Client_Status.failed
+        }
     }
     func read_cl()->String{
         self._cli_status = Client_Status.reading
@@ -50,30 +56,40 @@ class Client_SIO{
             (data, ack) in
             print(data)
         }
-        
         self._cli_status = Client_Status.waiting
         return "MSG_SENT"
     }
+    
     func write_cl(data_:String, req_type_:Request_Type)->Void{
         self._cli_status = Client_Status.reading
         print("Called write func")
         switch req_type_ {
         case .login:
-            _sock.emit("LOGIN", data_)
+            login_handler(sock_:_sock, req_type_str: "LOGIN", body: data_)
+            break
         case .call:
-            _sock.emit("CALL", data_)
+            call_handler(sock_:_sock, req_type_str: "CALL", body: data_)
+            break
         case .priority_call:
-            _sock.emit("PRIORITY_CALL", data_)
+            p_call_handler(sock_:_sock, req_type_str: "P_CALL", body: data_)
+            break
         case .arrived:
-            _sock.emit("ARRIVED", data_)
+            arrived_handler(sock_:_sock, req_type_str: "ARRIVED", body: data_)
+            break
         case .obj_sent:
-            _sock.emit("OBJ_SENT", data_)
+            obj_sent_handler(sock_:_sock, req_type_str: "OBJ_SENT", body: data_)
+            break
         case .obj_recieved:
-            _sock.emit("OBJ_RCV", data_)
+            obj_rcv_handler(sock_:_sock, req_type_str: "OBJ_RCVD", body: data_)
+            break
         case .cancel:
-            _sock.emit("CANCEL", data_)
+            cancel_handler(sock_:_sock, req_type_str: "CANCEL", body: data_)
+            break
         case .timeout:
-            _sock.emit("TIMEOUT", data_)
+            timeout_handler(sock_:_sock, req_type_str: "TIMEOUT", body: data_)
+            break
+        case .invalid:
+            invalid_handler(sock_: _sock, req_type_str: "INVALID", body: data_)
         }
         
         self._cli_status = Client_Status.waiting
