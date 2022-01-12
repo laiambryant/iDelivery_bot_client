@@ -11,22 +11,20 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var viewModel_:iDelivery_bot_VM
-    
     var body: some View {
-        if((viewModel_.app._user_data.auth==false)){
+        if((!viewModel_.ni_isConnected())){
             VStack{
                 Header()
                 Login_form(viewModel_: viewModel_)
             }
         } else {
-                VStack{
-                    Map_header(viewModel: viewModel_)
-                    Map_buttons(viewModel: viewModel_)
-                    Map_body(viewModel: viewModel_)
-                }
+            VStack{
+                Map_header(viewModel: viewModel_)
+                Map_buttons(viewModel: viewModel_)
+                Map_body(viewModel: viewModel_)
+            }
         }
     }
-
 }
 
 struct Header:View{
@@ -115,6 +113,7 @@ struct Map_buttons : View{
             }
             HStack{
                 cancel_button(viewModel: viewModel)
+                recieved_button(viewModel: viewModel)
             }
         }
     }
@@ -133,7 +132,7 @@ struct call_button:View{
     @ObservedObject var viewModel:iDelivery_bot_VM
     var body:some View{
         Button(action: {
-            
+            viewModel.ni_call()
         }, label:{
             HStack{
               Image(systemName: "phone")
@@ -141,11 +140,25 @@ struct call_button:View{
             }}).buttonStyle(.borderedProminent).disabled(viewModel.ni_isBeingServed())
     }
 }
+
+struct recieved_button:View{
+    @ObservedObject var viewModel:iDelivery_bot_VM
+    var body:some View{
+        Button(action: {
+            viewModel.ni_rcv()
+        }, label:{
+            HStack{
+              Image(systemName: "gift")
+              Text("Recieved    ")
+            }}).buttonStyle(.borderedProminent)
+    }
+}
+
 struct cancel_button:View{
     @ObservedObject var viewModel:iDelivery_bot_VM
     var body:some View{
         Button(action: {
-            
+            viewModel.ni_cancel()
         }, label:{
             HStack{
               Image(systemName: "x.circle")
@@ -158,7 +171,7 @@ struct arrived_button:View{
     @ObservedObject var viewModel:iDelivery_bot_VM
     var body:some View{
         Button(action: {
-            
+            viewModel.ni_arrived()
         }, label:{
             HStack{
               Image(systemName: "airplane.arrival")

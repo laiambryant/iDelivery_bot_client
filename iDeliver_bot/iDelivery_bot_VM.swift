@@ -24,15 +24,32 @@ class iDelivery_bot_VM : ObservableObject{
     }
     
     func ni_call(){
-        
+        // Request
+        app.NI_CALL()
+        // Response
         app.isBeingServed_Toggle()
+    }
+    
+    func ni_arrived(){
+        // Request
+        app.NI_ARRIVED()
+        // Response
+        
+    }
+    
+    func ni_cancel(){
+        //Request
+        app.NI_CANCEL()
+        //Response
+    }
+    
+    func ni_rcv(){
+        app.NI_RCV()
     }
     
     func ni_isConnected()->Bool{
         return app.isConnected()
     }
-    
-    
     
     func ni_isBeingServed()->Bool{
         return app.isBeingServed()

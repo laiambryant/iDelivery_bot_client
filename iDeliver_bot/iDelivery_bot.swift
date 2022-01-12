@@ -36,7 +36,31 @@ struct iDelivery_bot{
     }
     
     func NI_CALL(){
-        _network_interface.write_cl(data_:"" , req_type_: Request_Type.call)
+        let coords:Array<Float> = _bot.getPos()
+        let msg:String = "{coordinates:{x:\(coords[0]),y:\(coords[1]),z:\(coords[2])},robot_id:10}"
+        _network_interface.write_cl(data_:msg , req_type_: Request_Type.call)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
+            let tout_msg:String = "{robot_id:11}"
+            _network_interface.write_cl(data_:tout_msg , req_type_: Request_Type.timeout)
+        }
+        
+    }
+    
+    func NI_ARRIVED(){
+        let coords:Array<Float> = _bot.getPos()
+        let msg:String = "{coordinates:{x:\(coords[0]),y:\(coords[1]),z:\(coords[2])},robot_id:10}"
+        _network_interface.write_cl(data_:msg , req_type_: Request_Type.arrived)
+    }
+    
+    func NI_CANCEL(){
+        let msg:String = "{robot_id:10}"
+        _network_interface.write_cl(data_:msg , req_type_: Request_Type.cancel)
+    }
+    
+    func NI_RCV(){
+        let msg:String = "{robot_id:10}"
+        _network_interface.write_cl(data_:msg , req_type_: Request_Type.obj_recieved)
     }
     
     mutating func isConnected_Toggle(){

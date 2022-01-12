@@ -80,7 +80,7 @@ class Client_SIO{
             obj_sent_handler(sock_:_sock, req_type_str: "OBJ_SENT", body: data_)
             break
         case .obj_recieved:
-            obj_rcv_handler(sock_:_sock, req_type_str: "OBJ_RCVD", body: data_)
+            obj_rcv_handler(sock_:_sock, req_type_str: "OBJ_RCV", body: data_)
             break
         case .cancel:
             cancel_handler(sock_:_sock, req_type_str: "CANCEL", body: data_)

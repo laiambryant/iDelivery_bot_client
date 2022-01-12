@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "cappero_laser_odom_diag_2020-05-06-16-26-3.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "cappero_laser_odom_diag_2020-05-06-16-26-4.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "cappero_laser_odom_diag_2020-05-06-16-26-5.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

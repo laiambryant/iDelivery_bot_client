@@ -16,6 +16,7 @@
 		572A540C274D77BE0035372D /* iDelivery_bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572A540B274D77BE0035372D /* iDelivery_bot.swift */; };
 		572A7AEA27451DC200867884 /* Client_SIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FF57C273E82C200ADDBF9 /* Client_SIO.swift */; };
 		574FF57F273EBA3B00ADDBF9 /* Client_Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FF57E273EBA3B00ADDBF9 /* Client_Status.swift */; };
+		575E6858278F353B0025D45B /* cappero_laser_odom_diag_2020-05-06-16-26-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 575E6857278F353B0025D45B /* cappero_laser_odom_diag_2020-05-06-16-26-03.png */; };
 		5776ABE4276FA64200ABBC98 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 5776ABE3276FA64200ABBC98 /* SocketIO */; };
 		57ABB387273BECE500C0AA4B /* ShareTechMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ABB386273BECE500C0AA4B /* ShareTechMono-Regular.ttf */; settings = {ASSET_TAGS = (TechFont, ); }; };
 		57B47AB6273ACC5B0015D7AA /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AB5273ACC5B0015D7AA /* Robot.swift */; };
@@ -42,6 +43,7 @@
 		574FF57C273E82C200ADDBF9 /* Client_SIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client_SIO.swift; sourceTree = "<group>"; };
 		574FF57E273EBA3B00ADDBF9 /* Client_Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client_Status.swift; sourceTree = "<group>"; };
 		5752C60A27465B72007024BE /* iDeliver-bot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "iDeliver-bot-Info.plist"; sourceTree = SOURCE_ROOT; };
+		575E6857278F353B0025D45B /* cappero_laser_odom_diag_2020-05-06-16-26-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cappero_laser_odom_diag_2020-05-06-16-26-03.png"; sourceTree = "<group>"; };
 		57ABB386273BECE500C0AA4B /* ShareTechMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ShareTechMono-Regular.ttf"; sourceTree = "<group>"; };
 		57B47AB5273ACC5B0015D7AA /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
 		57B47AB7273ACC670015D7AA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -88,7 +90,8 @@
 		571A30BF273AB3930088AA70 /* iDeliver_bot */ = {
 			isa = PBXGroup;
 			children = (
-				57ABB37F273BEC4500C0AA4B /* Fonts */,
+				575E6857278F353B0025D45B /* cappero_laser_odom_diag_2020-05-06-16-26-03.png */,
+				575E6856278F35200025D45B /* Assets */,
 				57B47AB4273ACC450015D7AA /* Classes */,
 				57B7E092274CECB000959095 /* iDelivery_bot_VM.swift */,
 				571A30C0273AB3930088AA70 /* iDeliver_botApp.swift */,
@@ -122,6 +125,14 @@
 			children = (
 			);
 			path = Logs;
+			sourceTree = "<group>";
+		};
+		575E6856278F35200025D45B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				57ABB37F273BEC4500C0AA4B /* Fonts */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		57ABB37F273BEC4500C0AA4B /* Fonts */ = {
@@ -245,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				571A30C8273AB3940088AA70 /* Preview Assets.xcassets in Resources */,
+				575E6858278F353B0025D45B /* cappero_laser_odom_diag_2020-05-06-16-26-03.png in Resources */,
 				571A30C5273AB3940088AA70 /* Assets.xcassets in Resources */,
 				57ABB387273BECE500C0AA4B /* ShareTechMono-Regular.ttf in Resources */,
 			);
@@ -405,7 +417,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "iDeliver_bot/Preview\\ Content iDeliver_bot/Fonts/ShareTechMono-Regular.ttf";
+				DEVELOPMENT_ASSET_PATHS = "iDeliver_bot/Preview\\ Content";
 				DEVELOPMENT_TEAM = 5265695R8F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -441,7 +453,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "iDeliver_bot/Preview\\ Content iDeliver_bot/Fonts/ShareTechMono-Regular.ttf";
+				DEVELOPMENT_ASSET_PATHS = "iDeliver_bot/Preview\\ Content";
 				DEVELOPMENT_TEAM = 5265695R8F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
