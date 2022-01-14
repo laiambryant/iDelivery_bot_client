@@ -27,8 +27,8 @@
 		57B47AC0273AD1800015D7AA /* Admin_Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47ABF273AD1800015D7AA /* Admin_Request.swift */; };
 		57B47AC3273AD2170015D7AA /* World_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AC2273AD2170015D7AA /* World_Item.swift */; };
 		57B47AC5273AD5220015D7AA /* Request_Type.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B47AC4273AD5220015D7AA /* Request_Type.swift.swift */; };
-		57B7E090274CEB8900959095 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B7E08F274CEB8900959095 /* Map.swift */; };
 		57B7E093274CECB000959095 /* iDelivery_bot_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B7E092274CECB000959095 /* iDelivery_bot_VM.swift */; };
+		57C18A3D27919C3C0047A73F /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C18A3C27919C3C0047A73F /* Drawing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +53,8 @@
 		57B47ABF273AD1800015D7AA /* Admin_Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin_Request.swift; sourceTree = "<group>"; };
 		57B47AC2273AD2170015D7AA /* World_Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World_Item.swift; sourceTree = "<group>"; };
 		57B47AC4273AD5220015D7AA /* Request_Type.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request_Type.swift.swift; sourceTree = "<group>"; };
-		57B7E08F274CEB8900959095 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		57B7E092274CECB000959095 /* iDelivery_bot_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDelivery_bot_VM.swift; sourceTree = "<group>"; };
+		57C18A3C27919C3C0047A73F /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 		571A30BF273AB3930088AA70 /* iDeliver_bot */ = {
 			isa = PBXGroup;
 			children = (
-				575E6857278F353B0025D45B /* cappero_laser_odom_diag_2020-05-06-16-26-03.png */,
+				57C18A3B27919C250047A73F /* MyUtils */,
 				575E6856278F35200025D45B /* Assets */,
 				57B47AB4273ACC450015D7AA /* Classes */,
 				57B7E092274CECB000959095 /* iDelivery_bot_VM.swift */,
@@ -130,6 +130,7 @@
 		575E6856278F35200025D45B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				575E6857278F353B0025D45B /* cappero_laser_odom_diag_2020-05-06-16-26-03.png */,
 				57ABB37F273BEC4500C0AA4B /* Fonts */,
 			);
 			path = Assets;
@@ -157,7 +158,6 @@
 		57B47AB4273ACC450015D7AA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				57B7E08F274CEB8900959095 /* Map.swift */,
 				57B7E091274CEBD100959095 /* World_Items */,
 				57ABB38E273BFB0300C0AA4B /* Client */,
 				57B47AC1273AD1A20015D7AA /* Requests */,
@@ -185,6 +185,14 @@
 				57B47AC2273AD2170015D7AA /* World_Item.swift */,
 			);
 			path = World_Items;
+			sourceTree = "<group>";
+		};
+		57C18A3B27919C250047A73F /* MyUtils */ = {
+			isa = PBXGroup;
+			children = (
+				57C18A3C27919C3C0047A73F /* Drawing.swift */,
+			);
+			path = MyUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,9 +279,9 @@
 			files = (
 				572A7AEA27451DC200867884 /* Client_SIO.swift in Sources */,
 				57B47AB8273ACC670015D7AA /* User.swift in Sources */,
-				57B7E090274CEB8900959095 /* Map.swift in Sources */,
 				57B7E093274CECB000959095 /* iDelivery_bot_VM.swift in Sources */,
 				574FF57F273EBA3B00ADDBF9 /* Client_Status.swift in Sources */,
+				57C18A3D27919C3C0047A73F /* Drawing.swift in Sources */,
 				57B47AC3273AD2170015D7AA /* World_Item.swift in Sources */,
 				57B47AB6273ACC5B0015D7AA /* Robot.swift in Sources */,
 				571A30C3273AB3930088AA70 /* ContentView.swift in Sources */,

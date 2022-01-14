@@ -13,21 +13,21 @@ struct iDelivery_bot{
     public let _network_interface:Client_SIO
     private var _Connected:Bool = false
     private var _isBeingServed:Bool = false
-    private var _map:Map
-    private var _user:User
+    private var _loginSuccess:Bool = false
+    public var _user:User
+    public var _other_users:Array<User>
     private var _bot:Robot
     private var _req_no:Int
     public var _user_data:user_data
-    
     
     init(){
         _user_data = user_data()
         _requests = Array<Request>()
         _network_interface = Client_SIO()
-        _map = Map()
         _user = User(_name: "", _x: 0.0, _y: 0.0, _z: 0.0)
-        _bot = Robot(_ID: 0, _x: 0.0, _y: 0.0, _z: 0.0)
+        _bot = Robot(_ID: 0, _x: 900, _y: 700, _z: 0.0)
         _req_no = 0
+        _other_users = Array<User>()
     }
     
     func NI_connect(){
@@ -45,6 +45,7 @@ struct iDelivery_bot{
             _network_interface.write_cl(data_:tout_msg , req_type_: Request_Type.timeout)
         }
         
+                     
     }
     
     func NI_ARRIVED(){
@@ -78,15 +79,24 @@ struct iDelivery_bot{
     func isConnected()->Bool{
         return self._Connected
     }
+    func isLoggedIn()->Bool{
+        return self._loginSuccess
+    }
     
     mutating func NI_login(username_:String, password_:String)->Void{
-        let msg = "{username:\(username_), password:\(password_)}"
-        _network_interface.write_cl(data_: msg, req_type_: Request_Type.login)
-        let ret:String = _network_interface.read_cl()
-        print (ret)
+        let msg = "{\"username\":\"\(username_)\", \"password\":\"\(password_)\"}"
+        let ret:(String, Float, Float) = _network_interface.write_cl(data_: msg, req_type_: Request_Type.login) as! (String, Float, Float)
         // TODO: BASED ON RESPONSE DECIDE IF AUTH IS TRUE OR FALSE
-        _user_data.auth = true
+        if(ret.0 == ""){
+            _loginSuccess = false
+        } else {
+            _user = User(_name:ret.0, _x:ret.1, _y:ret.2, _z:0)
+            _loginSuccess = true
+        }
+        
     }
+    
+    func getBot()->Robot{return _bot}
     
     struct user_data{
         var _username:String

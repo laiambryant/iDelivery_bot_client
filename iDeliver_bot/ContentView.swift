@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     
     @ObservedObject var viewModel_:iDelivery_bot_VM
     var body: some View {
-        if((!viewModel_.ni_isConnected())){
+        if((!viewModel_.ni_isLoggedIn())){
             VStack{
                 Header()
                 Login_form(viewModel_: viewModel_)
@@ -119,12 +118,40 @@ struct Map_buttons : View{
     }
 }
 
+
 struct Map_body : View{
     @ObservedObject var viewModel:iDelivery_bot_VM
     var body:some View{
-        VStack{
-            Image("Map").resizable().aspectRatio(contentMode: .fit).padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        
+        guard let img = UIImage(named:"Map") else {
+            fatalError("Unable to load map")
         }
+        
+        UIGraphicsBeginImageContext(img.size)
+        img.draw(at: CGPoint.zero)
+        if(viewModel.app._user.exists){
+            draw_user(x_: Int(viewModel.app._user.getPos()[0]), y_: Int(viewModel.app._user.getPos()[1]), color: .blue)
+        }
+        if(!viewModel.app._other_users.isEmpty){
+            for user in viewModel.app._other_users {
+                draw_user( x_:Int(user.getPos()[0]), y_:Int(user.getPos()[1]), color: .green)
+            }
+        }
+        draw_user(x_:400 ,y_:100, color: UIColor.red)
+        draw_robot(bot: viewModel.app.getBot())
+        
+        let myImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return (
+            VStack{
+                Image(uiImage:myImage).resizable().aspectRatio(contentMode: .fit).border(.ultraThickMaterial)
+                HStack{
+                    Text(viewModel.app._user.name_).foregroundColor(.green).bold().border(.ultraThinMaterial)
+                    Text("Ross").foregroundColor(.red).bold().border(.ultraThinMaterial)
+                }
+            }
+        )
     }
 }
 
@@ -183,5 +210,6 @@ struct arrived_button:View{
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(viewModel_:iDelivery_bot_VM())
+.previewInterfaceOrientation(.portrait)
     }
 }

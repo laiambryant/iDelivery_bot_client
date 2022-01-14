@@ -9,7 +9,7 @@ import Foundation
 
 class World_Item : CustomStringConvertible,Identifiable{
     
-    private let name_:String
+    public let name_:String
     private var x_:Float = 0
     private var y_:Float = 0
     private var z_:Float = 0

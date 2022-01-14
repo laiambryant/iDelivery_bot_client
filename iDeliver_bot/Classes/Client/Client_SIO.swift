@@ -26,7 +26,7 @@ class Client_SIO{
     private let _ip_addr = "http://192.168.1.64:"
     private let _docker_container_ip_addr = "http://172.17.0.1"
     init() {
-        let addr:String = _ip_addr + String(_port)
+        let addr:String = _localhost_str + String(_port)
         _manager = SocketManager(socketURL: URL(string: addr)!, config: [.log(true), .compress])
         _sock = _manager.defaultSocket
         _cli_status = Client_Status.waiting
@@ -41,32 +41,23 @@ class Client_SIO{
         }
         _sock.on(clientEvent: .error){
             (data, ack) in
-            print(data)
+                print(data)
         }
         _sock.on(clientEvent: .disconnect){
             (data, ack) in
-            self._cli_status = Client_Status.failed
+                self._cli_status = Client_Status.failed
         }
     }
     func read_cl()->String{
-        self._cli_status = Client_Status.reading
-        
-        //Write requests possible reads here
-        _sock.on("LOGIN_SUCCESS"){
-            (data, ack) in
-            print(data)
-        }
-        self._cli_status = Client_Status.waiting
         return "MSG_SENT"
     }
     
-    func write_cl(data_:String, req_type_:Request_Type)->Void{
+    func write_cl(data_:String, req_type_:Request_Type)->Any?{
         self._cli_status = Client_Status.reading
         print("Called write func")
         switch req_type_ {
         case .login:
-            login_handler(sock_:_sock, req_type_str: "LOGIN", body: data_)
-            break
+            return login_handler(sock_:_sock, req_type_str: "LOGIN", body: data_)
         case .call:
             call_handler(sock_:_sock, req_type_str: "CALL", body: data_)
             break
@@ -93,6 +84,8 @@ class Client_SIO{
         }
         
         self._cli_status = Client_Status.waiting
+        return nil
+
     }
    
 }
