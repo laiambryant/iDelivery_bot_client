@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct iDelivery_bot{
     
     private var _requests:Array<Request>
     public let _network_interface:Client_SIO
-    private var _Connected:Bool = false
+    var _Connected:Bool = false
     private var _isBeingServed:Bool = false
     private var _loginSuccess:Bool = false
     public var _user:User
@@ -19,7 +20,7 @@ struct iDelivery_bot{
     private var _bot:Robot
     private var _req_no:Int
     public var _user_data:user_data
-    
+        
     init(){
         _user_data = user_data()
         _requests = Array<Request>()
@@ -30,7 +31,7 @@ struct iDelivery_bot{
         _other_users = Array<User>()
     }
     
-    func NI_connect(){
+    func NI_CONNECT(){
         _network_interface.connect_cl()
         
     }
@@ -40,12 +41,10 @@ struct iDelivery_bot{
         let msg:String = "{coordinates:{x:\(coords[0]),y:\(coords[1]),z:\(coords[2])},robot_id:10}"
         _network_interface.write_cl(data_:msg , req_type_: Request_Type.call)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 100) {
             let tout_msg:String = "{robot_id:11}"
             _network_interface.write_cl(data_:tout_msg , req_type_: Request_Type.timeout)
         }
-        
-                     
     }
     
     func NI_ARRIVED(){
@@ -64,13 +63,28 @@ struct iDelivery_bot{
         _network_interface.write_cl(data_:msg , req_type_: Request_Type.obj_recieved)
     }
     
+    mutating func NI_LOGIN(username_:String, password_:String)->Void{
+        let msg = "{\"username\":\"\(username_)\", \"password\":\"\(password_)\"}"
+        _network_interface.write_cl(data_: msg, req_type_: Request_Type.login)        
+    }
+    
+    // Mutating Toggles
+    
     mutating func isConnected_Toggle(){
         _Connected.toggle()
     }
-    
     mutating func isBeingServed_Toggle(){
         _isBeingServed.toggle()
     }
+    mutating func isLoggedIn_Toggle(){
+        _loginSuccess.toggle()
+    }
+    
+    mutating func add_user(new_user:User){
+        self._other_users.append(new_user)
+    }
+    
+    // Getters
     
     func isBeingServed()->Bool{
         return self._isBeingServed
@@ -79,21 +93,9 @@ struct iDelivery_bot{
     func isConnected()->Bool{
         return self._Connected
     }
+    
     func isLoggedIn()->Bool{
         return self._loginSuccess
-    }
-    
-    mutating func NI_login(username_:String, password_:String)->Void{
-        let msg = "{\"username\":\"\(username_)\", \"password\":\"\(password_)\"}"
-        let ret:(String, Float, Float) = _network_interface.write_cl(data_: msg, req_type_: Request_Type.login) as! (String, Float, Float)
-        // TODO: BASED ON RESPONSE DECIDE IF AUTH IS TRUE OR FALSE
-        if(ret.0 == ""){
-            _loginSuccess = false
-        } else {
-            _user = User(_name:ret.0, _x:ret.1, _y:ret.2, _z:0)
-            _loginSuccess = true
-        }
-        
     }
     
     func getBot()->Robot{return _bot}

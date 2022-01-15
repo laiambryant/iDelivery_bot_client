@@ -19,7 +19,7 @@ class iDelivery_bot_VM : ObservableObject{
     // MARK: --Intent s(s)
     
     func ni_connect(){
-        app.NI_connect()
+        app.NI_CONNECT()
         app.isConnected_Toggle()
     }
     
@@ -50,39 +50,6 @@ class iDelivery_bot_VM : ObservableObject{
         
     }
     
-    func drawOnImage(_ image: UIImage) -> UIImage {
-         
-         // Create a context of the starting image size and set it as the current one
-         UIGraphicsBeginImageContext(image.size)
-         
-         // Draw the starting image in the current context as background
-         image.draw(at: CGPoint.zero)
-
-         // Get the current context
-         let context = UIGraphicsGetCurrentContext()!
-
-         // Draw a red line
-         context.setLineWidth(2.0)
-         context.setStrokeColor(UIColor.red.cgColor)
-         context.move(to: CGPoint(x: 100, y: 100))
-         context.addLine(to: CGPoint(x: 200, y: 200))
-         context.strokePath()
-         
-         // Draw a transparent green Circle
-         context.setStrokeColor(UIColor.green.cgColor)
-         context.setAlpha(0.5)
-         context.setLineWidth(10.0)
-         context.addEllipse(in: CGRect(x: 100, y: 100, width: 100, height: 100))
-         context.drawPath(using: .stroke) // or .fillStroke if need filling
-         
-         // Save the context as a new UIImage
-        let myImage = UIGraphicsGetImageFromCurrentImageContext()!
-         UIGraphicsEndImageContext()
-         
-         // Return modified image
-         return myImage
-    }
-    
     func ni_isConnected()->Bool{
         return app.isConnected()
     }
@@ -95,11 +62,31 @@ class iDelivery_bot_VM : ObservableObject{
         return app.isLoggedIn()
     }
     
-    func verify_credentials()->Bool{
+    func verify_credentials()->Void{
         let username_:String =  app._user_data._username
         let password_:String = app._user_data._password
-        app.NI_login(username_: username_, password_: password_)
-        return app._user_data.auth
+        app.NI_LOGIN(username_: username_, password_: password_)
+        app.isLoggedIn_Toggle()
+        get_users()
+    }
+    
+    func get_users(){
+        var username:String = ""
+        var x:Float = 0
+        var y:Float = 0
+        
+        app._network_interface._sock.on("USERS"){ data, ack in
+        
+            let arr = data[0] as! Array<NSMutableDictionary>
+            for elem in arr{
+                username = elem.value(forKey: "username")as! String
+                x = elem.value(forKey: "x_pos") as! Float
+                y = elem.value(forKey: "y_pos") as! Float
+                if(username != self.app._user.name_){
+                    self.app.add_user(new_user:User(_name: username, _x: x, _y: y, _z: 0.0))
+                }
+            }
+        }
     }
     
 }

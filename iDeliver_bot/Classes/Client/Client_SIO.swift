@@ -12,7 +12,7 @@ import SwiftUI
 
 class Client_SIO{
     
-    private var _sock:SocketIOClient
+    public var _sock:SocketIOClient
     private var _cli_status:Client_Status
     private var _buffer:[Character] = []
     private let _port:UInt16 = 5050
@@ -21,10 +21,11 @@ class Client_SIO{
         "login", "call", "priority_call", "arrived",
         "obj_sent", "obj_recieved", "cancel", "timeout"
     ]
+    
     //localhost string used if server is on the same machine, ip addr if server is on another machine
     private let _localhost_str = "http://localhost:"
     private let _ip_addr = "http://192.168.1.64:"
-    private let _docker_container_ip_addr = "http://172.17.0.1"
+
     init() {
         let addr:String = _localhost_str + String(_port)
         _manager = SocketManager(socketURL: URL(string: addr)!, config: [.log(true), .compress])
@@ -36,28 +37,30 @@ class Client_SIO{
         _sock.connect()
         _sock.on(clientEvent: .connect){
             (data, ack) in
-            print(data)
             self._cli_status = Client_Status.waiting
         }
         _sock.on(clientEvent: .error){
             (data, ack) in
-                print(data)
         }
         _sock.on(clientEvent: .disconnect){
             (data, ack) in
                 self._cli_status = Client_Status.failed
         }
+        
     }
     func read_cl()->String{
         return "MSG_SENT"
     }
     
-    func write_cl(data_:String, req_type_:Request_Type)->Any?{
+    
+    
+    func write_cl(data_:String, req_type_:Request_Type){
         self._cli_status = Client_Status.reading
         print("Called write func")
         switch req_type_ {
         case .login:
-            return login_handler(sock_:_sock, req_type_str: "LOGIN", body: data_)
+            login_handler(sock_:_sock, req_type_str: "LOGIN", body: data_)
+            break
         case .call:
             call_handler(sock_:_sock, req_type_str: "CALL", body: data_)
             break
@@ -82,9 +85,7 @@ class Client_SIO{
         case .invalid:
             invalid_handler(sock_: _sock, req_type_str: "INVALID", body: data_)
         }
-        
         self._cli_status = Client_Status.waiting
-        return nil
 
     }
    

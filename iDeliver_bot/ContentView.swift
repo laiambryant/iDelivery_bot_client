@@ -120,7 +120,9 @@ struct Map_buttons : View{
 
 
 struct Map_body : View{
+    
     @ObservedObject var viewModel:iDelivery_bot_VM
+    
     var body:some View{
         
         guard let img = UIImage(named:"Map") else {
@@ -146,9 +148,12 @@ struct Map_body : View{
         return (
             VStack{
                 Image(uiImage:myImage).resizable().aspectRatio(contentMode: .fit).border(.ultraThickMaterial)
-                HStack{
+                LazyHStack{
                     Text(viewModel.app._user.name_).foregroundColor(.green).bold().border(.ultraThinMaterial)
-                    Text("Ross").foregroundColor(.red).bold().border(.ultraThinMaterial)
+                    ForEach(viewModel.app._other_users){ user in
+                        Text("\(user.name_)").foregroundColor(.blue).bold().border(.ultraThinMaterial)
+                    }
+                    
                 }
             }
         )

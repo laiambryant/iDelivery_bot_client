@@ -8,23 +8,29 @@
 import Foundation
 import SocketIO
 
-func login_handler(sock_:SocketIOClient, req_type_str:String, body:String)->(String,Float,Float){
+func login_handler(sock_:SocketIOClient, req_type_str:String, body:String){
     var username:String = ""
     var x:Float = 0
     var y:Float = 0
+    var ret:Array<User> = Array<User>()
+    
     sock_.emit(req_type_str, body){
+        
         sock_.on("LOGIN_SUCCESS"){ data, ack in
+            
             username = data[0] as! String //Username
             x = data[1] as! Float //x_pos
             y = data[2] as! Float//y_pos
+            ret.append(User(_name: username, _x: x, _y: y, _z: 0.0))
             
         }
+        
         sock_.on("LOGIN_FAILURE"){ data, ack in
             print(data)
         }
+        
     }
-    return(username,x,y)
-
+    
 }
 
 func call_handler(sock_:SocketIOClient, req_type_str:String, body:String)->Void{
