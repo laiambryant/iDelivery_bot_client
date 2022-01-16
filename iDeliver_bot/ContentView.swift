@@ -131,15 +131,14 @@ struct Map_body : View{
         
         UIGraphicsBeginImageContext(img.size)
         img.draw(at: CGPoint.zero)
-        if(viewModel.app._user.exists){
-            draw_user(x_: Int(viewModel.app._user.getPos()[0]), y_: Int(viewModel.app._user.getPos()[1]), color: .blue)
+        if(!viewModel.app._other_users.isEmpty){
+            draw_user(x_: Int(viewModel.app._user.getPos()[0]), y_: Int(viewModel.app._user.getPos()[1]), color: .green)
         }
         if(!viewModel.app._other_users.isEmpty){
             for user in viewModel.app._other_users {
-                draw_user( x_:Int(user.getPos()[0]), y_:Int(user.getPos()[1]), color: .green)
+                draw_user( x_:Int(user.getPos()[0]), y_:Int(user.getPos()[1]), color: .blue)
             }
         }
-        draw_user(x_:400 ,y_:100, color: UIColor.red)
         draw_robot(bot: viewModel.app.getBot())
         
         let myImage = UIGraphicsGetImageFromCurrentImageContext()!
@@ -149,11 +148,10 @@ struct Map_body : View{
             VStack{
                 Image(uiImage:myImage).resizable().aspectRatio(contentMode: .fit).border(.ultraThickMaterial)
                 LazyHStack{
-                    Text(viewModel.app._user.name_).foregroundColor(.green).bold().border(.ultraThinMaterial)
+                    Text("\(viewModel.app._user_data._username)(You)").foregroundColor(.green).bold().border(.ultraThinMaterial)
                     ForEach(viewModel.app._other_users){ user in
                         Text("\(user.name_)").foregroundColor(.blue).bold().border(.ultraThinMaterial)
                     }
-                    
                 }
             }
         )

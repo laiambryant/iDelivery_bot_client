@@ -16,6 +16,18 @@ class iDelivery_bot_VM : ObservableObject{
         app = iDelivery_bot()
     }
     
+    func ni_isConnected()->Bool{
+        return app.isConnected()
+    }
+    
+    func ni_isBeingServed()->Bool{
+        return app.isBeingServed()
+    }
+    
+    func ni_isLoggedIn()->Bool{
+        return app.isLoggedIn()
+    }
+    
     // MARK: --Intent s(s)
     
     func ni_connect(){
@@ -26,6 +38,7 @@ class iDelivery_bot_VM : ObservableObject{
     func ni_call(){
         // Request
         app.NI_CALL()
+        
         // Response
         app.isBeingServed_Toggle()
     }
@@ -49,19 +62,7 @@ class iDelivery_bot_VM : ObservableObject{
         //Response
         
     }
-    
-    func ni_isConnected()->Bool{
-        return app.isConnected()
-    }
-    
-    func ni_isBeingServed()->Bool{
-        return app.isBeingServed()
-    }
-    
-    func ni_isLoggedIn()->Bool{
-        return app.isLoggedIn()
-    }
-    
+
     func verify_credentials()->Void{
         let username_:String =  app._user_data._username
         let password_:String = app._user_data._password
@@ -82,8 +83,11 @@ class iDelivery_bot_VM : ObservableObject{
                 username = elem.value(forKey: "username")as! String
                 x = elem.value(forKey: "x_pos") as! Float
                 y = elem.value(forKey: "y_pos") as! Float
-                if(username != self.app._user.name_){
+                if(username != self.app._user_data._username){
+                    print(username + "!=" + self.app._user.name_)
                     self.app.add_user(new_user:User(_name: username, _x: x, _y: y, _z: 0.0))
+                }else{
+                    self.app.update_pos(new_x: x, new_y: y, new_z: 0.0)
                 }
             }
         }

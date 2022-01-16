@@ -84,6 +84,10 @@ struct iDelivery_bot{
         self._other_users.append(new_user)
     }
     
+    mutating func update_pos( new_x:Float, new_y: Float, new_z: Float){
+        self._user.updatePos(_x:new_x, _y: new_y, _z:new_z )
+    }
+    
     // Getters
     
     func isBeingServed()->Bool{

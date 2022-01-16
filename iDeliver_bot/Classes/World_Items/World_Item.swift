@@ -21,6 +21,12 @@ class World_Item : CustomStringConvertible,Identifiable{
         self.z_ = _z
     }
     
+    func updatePos( _x:Float, _y:Float, _z:Float){
+        self.x_ = _x
+        self.y_ = _y
+        self.z_ = _z
+    }
+    
     func getPos()->Array<Float>{
         return [self.x_, self.y_, self.z_]
     }
