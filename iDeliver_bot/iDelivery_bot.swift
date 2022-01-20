@@ -33,7 +33,6 @@ struct iDelivery_bot{
     
     func NI_CONNECT(){
         _network_interface.connect_cl()
-        
     }
     
     func NI_CALL(){

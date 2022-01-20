@@ -38,7 +38,6 @@ class iDelivery_bot_VM : ObservableObject{
     func ni_call(){
         // Request
         app.NI_CALL()
-        
         // Response
         app.isBeingServed_Toggle()
     }
@@ -69,6 +68,22 @@ class iDelivery_bot_VM : ObservableObject{
         app.NI_LOGIN(username_: username_, password_: password_)
         app.isLoggedIn_Toggle()
         get_users()
+        update_robot_position()
+    }
+    
+    func update_robot_position(){
+        
+        app._network_interface._sock.on("ROBO_POS"){ data, ack in
+            var x:Float = 0
+            var y:Float = 0
+            let arr = data[0] as! Array<NSMutableDictionary>
+            for elem in arr{
+                x = elem.value(forKey: "x_pos") as! Float
+                y = elem.value(forKey: "y_pos") as! Float
+            }
+            self.app.getBot().updatePos(_x: x, _y: y, _z: 0.0)
+        }
+        
     }
     
     func get_users(){
