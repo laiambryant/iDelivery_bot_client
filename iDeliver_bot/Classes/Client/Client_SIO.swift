@@ -27,7 +27,7 @@ class Client_SIO{
     private let _ip_addr = "http://192.168.1.64:"
 
     init() {
-        let addr:String = _localhost_str + String(_port)
+        let addr:String = _ip_addr + String(_port)
         _manager = SocketManager(socketURL: URL(string: addr)!, config: [.log(true), .compress])
         _sock = _manager.defaultSocket
         _cli_status = Client_Status.waiting

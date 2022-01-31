@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @ObservedObject var viewModel_:iDelivery_bot_VM
     var body: some View {
+        //if(false){
         if((!viewModel_.ni_isLoggedIn())){
             VStack{
                 Header()
@@ -29,7 +30,7 @@ struct ContentView: View {
 struct Header:View{
     var body:some View{
         Text("iDelivery BOT").fontWeight(.bold).font(.title).padding(.all)
-        Image("Robot").resizable().aspectRatio(contentMode: .fit).padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        Image("Robot").resizable().aspectRatio(contentMode: .fit).padding(.all)
     }
 }
 
@@ -136,7 +137,11 @@ struct Map_body : View{
         }
         if(!viewModel.app._other_users.isEmpty){
             for user in viewModel.app._other_users {
-                draw_user( x_:Int(user.getPos()[0]), y_:Int(user.getPos()[1]), color: .blue)
+                if(user.is_selected()){
+                    draw_user( x_:Int(user.getPos()[0]), y_:Int(user.getPos()[1]), color: .red)
+                }else{
+                    draw_user( x_:Int(user.getPos()[0]), y_:Int(user.getPos()[1]), color: .blue)
+                }
             }
         }
         draw_robot(bot: viewModel.app.getBot())
@@ -148,9 +153,35 @@ struct Map_body : View{
             VStack{
                 Image(uiImage:myImage).resizable().aspectRatio(contentMode: .fit).border(.ultraThickMaterial)
                 LazyHStack{
-                    Text("\(viewModel.app._user_data._username)(You)").foregroundColor(.green).bold().border(.ultraThinMaterial)
+                    
+                    Button(action:{
+                        
+                    },label:{
+                        HStack{
+                            Image(systemName:"person")
+                            Text("\(viewModel.app._user_data._username)(You)")
+                        }}).buttonStyle(.borderless).disabled(true).foregroundColor(.green)
+                    
                     ForEach(viewModel.app._other_users){ user in
-                        Text("\(user.name_)").foregroundColor(.blue).bold().border(.ultraThinMaterial)
+                        if(user.is_selected()){
+                            Button(action:{
+                                viewModel.select_user(user_: user)
+                                
+                            },label:{
+                                HStack{
+                                    Image(systemName:"person")
+                                    Text("\(user.name_) (selected)")
+                                }}).buttonStyle(.plain).foregroundColor(.red)
+                        }else{
+                            Button(action:{
+                                viewModel.select_user(user_: user)
+                            },label:{
+                                HStack{
+                                    Image(systemName:"person")
+                                    Text("\(user.name_)")
+                                }}).buttonStyle(.plain).foregroundColor(.blue)
+                        }
+                        
                     }
                 }
             }
@@ -213,6 +244,5 @@ struct arrived_button:View{
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(viewModel_:iDelivery_bot_VM())
-.previewInterfaceOrientation(.portrait)
     }
 }

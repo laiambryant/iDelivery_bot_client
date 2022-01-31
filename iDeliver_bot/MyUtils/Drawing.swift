@@ -23,5 +23,6 @@ func draw_user( x_:Int, y_:Int, color:UIColor){
 
 func draw_robot(bot:Robot){
     let robot = UIImage(named:"Robot")
-    robot?.draw(in: .init(x:Int(bot.getPos()[0]), y:Int(bot.getPos()[1]), width: 160, height: 90))
+    robot?.draw(in: .init(x:Int(bot.getPos()[0]), y:950-(Int(bot.getPos()[1])), width: 160, height: 90))
+    
 }

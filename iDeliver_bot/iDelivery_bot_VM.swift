@@ -59,7 +59,7 @@ class iDelivery_bot_VM : ObservableObject{
         //Request
         app.NI_RCV()
         //Response
-        
+        update_robot_position()
     }
 
     func verify_credentials()->Void{
@@ -68,7 +68,6 @@ class iDelivery_bot_VM : ObservableObject{
         app.NI_LOGIN(username_: username_, password_: password_)
         app.isLoggedIn_Toggle()
         get_users()
-        update_robot_position()
     }
     
     func update_robot_position(){
@@ -81,7 +80,7 @@ class iDelivery_bot_VM : ObservableObject{
                 x = elem.value(forKey: "x_pos") as! Float
                 y = elem.value(forKey: "y_pos") as! Float
             }
-            self.app.getBot().updatePos(_x: x, _y: y, _z: 0.0)
+            self.app.bot_update_pos(new_x: x, new_y: y, new_z: 0.0)
         }
         
     }
@@ -106,6 +105,10 @@ class iDelivery_bot_VM : ObservableObject{
                 }
             }
         }
+    }
+    
+    func select_user(user_:User){
+        app.user_select(user: user_)
     }
     
 }

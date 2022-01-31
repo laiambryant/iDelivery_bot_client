@@ -26,7 +26,7 @@ struct iDelivery_bot{
         _requests = Array<Request>()
         _network_interface = Client_SIO()
         _user = User(_name: "", _x: 0.0, _y: 0.0, _z: 0.0)
-        _bot = Robot(_ID: 0, _x: 900, _y: 700, _z: 0.0)
+        _bot = Robot(_ID: 0, _x: 900, _y: 250, _z: 0.0)
         _req_no = 0
         _other_users = Array<User>()
     }
@@ -85,6 +85,18 @@ struct iDelivery_bot{
     
     mutating func update_pos( new_x:Float, new_y: Float, new_z: Float){
         self._user.updatePos(_x:new_x, _y: new_y, _z:new_z )
+    }
+    
+    mutating func bot_update_pos(new_x:Float, new_y: Float, new_z: Float){
+        self._bot.updatePos(_x: new_x, _y: new_y, _z: new_z)
+    }
+    mutating func user_select(user:User){
+        for u in _other_users {
+            if(u.is_selected()){
+                u.selected_toggle()
+            }
+        }
+        user.selected_toggle()
     }
     
     // Getters
