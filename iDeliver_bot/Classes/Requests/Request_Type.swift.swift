@@ -11,9 +11,7 @@ import SwiftUI
 enum Request_Type{
     case login
     case call
-    case priority_call
-    case arrived
-    case obj_sent
+    case send
     case obj_recieved
     case cancel
     case timeout

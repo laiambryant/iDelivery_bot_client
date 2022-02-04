@@ -17,9 +17,6 @@ class User:World_Item{
     func user_exists()->Void{
         exists = true;
     }
-    func selected_toggle(){
-        selected.toggle()
-    }
     func is_selected()->Bool{
         return selected
     }

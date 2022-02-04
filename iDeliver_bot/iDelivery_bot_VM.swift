@@ -12,9 +12,14 @@ class iDelivery_bot_VM : ObservableObject{
 
     @Published var app:iDelivery_bot
     
+    // MARK: --Ctors
+    
+    //Initializes app
     init(){
         app = iDelivery_bot()
     }
+    
+// MARK: --Getters
     
     func ni_isConnected()->Bool{
         return app.isConnected()
@@ -24,17 +29,30 @@ class iDelivery_bot_VM : ObservableObject{
         return app.isBeingServed()
     }
     
+    func ni_isAtLocation()->Bool{
+        return app.isAtLocation()
+    }
+    
     func ni_isLoggedIn()->Bool{
         return app.isLoggedIn()
     }
     
     // MARK: --Intent s(s)
     
+    //Connects to server on network interface
     func ni_connect(){
         app.NI_CONNECT()
         app.isConnected_Toggle()
     }
     
+    //Disconnects from server on network interface
+    func ni_disconnect(){
+        app.NI_DISCONNECT()
+        app.isLoggedIn_Toggle()
+        app.isConnected_Toggle()
+    }
+    
+    //Calls bot over network interface
     func ni_call(){
         // Request
         app.NI_CALL()
@@ -42,33 +60,42 @@ class iDelivery_bot_VM : ObservableObject{
         app.isBeingServed_Toggle()
     }
     
-    func ni_arrived(){
+    //Sends a SEND message over network interface
+    func ni_send(){
         // Request
-        app.NI_ARRIVED()
+        app.NI_SEND()
         // Response
-        
     }
     
+    //Sends a CANCEL message over network interface
     func ni_cancel(){
         //Request
         app.NI_CANCEL()
         //Response
     }
     
+    //Sends a RCV message over network interface
     func ni_rcv(){
         //Request
         app.NI_RCV()
         //Response
         update_robot_position()
     }
-
+    
+    // Verifies credentials and activates Disconnect handler
     func verify_credentials()->Void{
         let username_:String =  app._user_data._username
         let password_:String = app._user_data._password
         app.NI_LOGIN(username_: username_, password_: password_)
         app.isLoggedIn_Toggle()
+        app._network_interface._sock.on("Disconnect"){ data, ack in
+            self.app.isLoggedIn_Toggle()
+            self.ni_disconnect()
+        }
         get_users()
     }
+    
+    // MARK: --Other
     
     func update_robot_position(){
         
@@ -85,6 +112,7 @@ class iDelivery_bot_VM : ObservableObject{
         
     }
     
+    //Gets users from network and adds them to model
     func get_users(){
         var username:String = ""
         var x:Float = 0
