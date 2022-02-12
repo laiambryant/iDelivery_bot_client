@@ -58,7 +58,7 @@ struct iDelivery_bot{
                 user_pos = u.getPos()
             }
         }
-        let msg:String = "{coordinates:{x:\(user_pos[0]),y:\(user_pos[1]),z:0.0)},robot_id:10}"
+        let msg:String = "{coordinates:{x:\(user_pos[0]),y:\(user_pos[1]),z:0.0},robot_id:10}"
         _network_interface.write_cl(data_:msg , req_type_: Request_Type.send)
     }
     
